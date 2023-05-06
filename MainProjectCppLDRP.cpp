@@ -33,7 +33,7 @@ friend istream & operator>>(istream &in,LDRPPR &l);
 
 ostream & operator<<(ostream &out,LDRPPR &l)
 {
-out<<l.Enrolment_number<<"  "<<l.Name<<"  "<<l.P_number<<endl;
+out<<l.Enrolment_number<<"  "<<l.Name<<"  "<<l.P_number<<"\n";
 return out;
 }
 istream & operator>>(istream &in,LDRPPR &l)
@@ -93,7 +93,7 @@ int main()
 
     for(int i=0;i<Entries;i++)
     {
-        out<<ltemp1[i]->geten()<<"  "<<ltemp1[i]->getname()<<"  "<<ltemp1[i]->getpnum()<<endl;
+        out<<"\n"<<ltemp1[i]->geten()<<"  "<<ltemp1[i]->getname()<<"  "<<ltemp1[i]->getpnum();
     }
 
     out.close();
@@ -223,6 +223,206 @@ int main()
                         in.close();
                       }
                     }
+                            else if(Selection_1==4)
+                            {
+                                int entry;
+                                cout<<"How Many Detail's Of Student You Wants To Change: ";
+                                cin>>entry;
+                                for(int i=1;i<=entry;i++)
+                              {
+                                cout<<"For "<<i<<" Student"<<endl<<endl;
+                                // Press 4: Replace Student Details
+                                cout<<"****************************************************************"<<endl;
+                                cout<<"*                                                              *"<<endl;
+                                cout<<"*    Press 1:Going By Enrolment Number                         *"<<endl;
+                                cout<<"*    Press 2:Going By Name                                     *"<<endl;
+                                cout<<"*    Press 3:Going By Phone Number                             *"<<endl;
+                                cout<<"*                                                              *"<<endl;
+                                cout<<"****************************************************************"<<endl;
+                                
+                                int Selection_4;
+                                cout<<"Enter Your Choice: ";
+                                cin>>Selection_4;
+                                if(Selection_4==1)
+                                {
+                                    int tempenno;
+                                    cout<<"Enter Enrolment Number: ";
+                                    cin>>tempenno;
+                                    vector<LDRPPR> ltemp4;
+
+                                    ifstream in("LDRPclassD.txt");
+
+                                    while(!in.fail() && !in.eof())
+                                    {
+                                        LDRPPR temp;
+                                        in>>temp;
+                                        ltemp4.push_back(temp);
+                                    }
+
+                                    int size=ltemp4.size();
+                                    int t=0,r;
+
+                                    while(size>0)
+                                    {
+                                        if(ltemp4[t].geten()==tempenno)
+                                        {
+                                            int en;
+                                            cout<<"Enter New Enrolment Number For '"<<ltemp4[t].geten()<<"' :  ";
+                                            cin>>en;
+                                            ltemp4[t].seten(en);
+                                            r=t;
+                                        }
+                                        t++;
+                                        size--;
+                                    }
+                                    cout<<"After Changes: "<<"\n"<<ltemp4[r].geten()<<"  "
+                                                            <<ltemp4[r].getname()<<"  "
+                                                            <<ltemp4[r].getpnum()<<endl<<endl;
+                                    
+
+                                    in.close();
+                                    ofstream out("LDRPclassD.txt");
+
+                                    for(auto x: ltemp4)
+                                    {
+                                        out<<x;
+                                    }
+
+                                    out.close();
+                                }
+                               
+                               else if(Selection_4==2)
+                                {
+                                    string tempen;
+                                    cout<<"Enter Name: ";
+                                    cin>>tempen;
+                                    vector<LDRPPR> ltemp4;
+
+                                    ifstream in("LDRPclassD.txt");
+
+                                    while(!in.fail() && !in.eof())
+                                    {
+                                        LDRPPR temp;
+                                        in>>temp;
+                                        ltemp4.push_back(temp);
+                                    }
+
+                                    int size=ltemp4.size();
+                                    int t=0,r;
+
+                                    while(size>0)
+                                    {
+                                        if(ltemp4[t].getname()==tempen)
+                                        {
+                                            string n;
+                                            cout<<"Enter New Name For '"<<ltemp4[t].getname()<<"' :  ";
+                                            cin>>n;
+                                            ltemp4[t].setname(n);
+                                            r=t;
+                                        }
+                                        t++;
+                                        size--;
+                                    }
+                                    cout<<"After Changes: "<<"\n"<<ltemp4[r].geten()<<"  "
+                                                            <<ltemp4[r].getname()<<"  "
+                                                            <<ltemp4[r].getpnum()<<endl<<endl;
+                                    
+                                    in.close();
+
+                                    ofstream out("LDRPclassD.txt");
+                                    for(auto y: ltemp4)
+                                    {
+                                        out<<y;
+                                    }
+
+                                    out.close();
+
+                                }
+
+                                else if(Selection_4==3)
+                                {
+                                    long long int temppn;
+                                    cout<<"Enter Phone Number: ";
+                                    cin>>temppn;
+                                    vector<LDRPPR> ltemp4;
+
+                                    ifstream in("LDRPclassD.txt");
+
+                                    while(!in.fail() && !in.eof())
+                                    {
+                                        LDRPPR temp;
+                                        in>>temp;
+                                        ltemp4.push_back(temp);
+                                    }
+
+                                    int size=ltemp4.size();
+                                    int t=0,r=-1;
+
+                                    while(size>0)
+                                    {
+                                        if(ltemp4[t].getpnum()==temppn)
+                                        {
+                                            long long int p;
+                                            cout<<"Enter New Phone Number For '"<<ltemp4[t].getpnum()<<"' :  ";
+                                            cin>>p;
+                                            ltemp4[t].setpnum(p);
+                                            r=t;
+                                        }
+                                        t++;
+                                        size--;
+                                    }
+                                    if(r>=0)
+                                    {
+                                        cout<<"After Changes: "<<"\n"<<ltemp4[r].geten()<<"  "
+                                                            <<ltemp4[r].getname()<<"  "
+                                                            <<ltemp4[r].getpnum()<<endl<<endl;
+                                    }
+                                    
+                                    in.close();
+
+                                    ofstream out("LDRPclassD.txt");
+                                    for(auto z: ltemp4)
+                                    {
+                                        out<<z;
+                                    }
+
+                                    out.close();
+
+                                }
+                                else{cout<<"ERROR :(";}
+                              }
+                            }
+                                    else if(Selection_1==5)
+                                    {
+                                    //  Press 5: Delete Student Details   
+                                    // t.erase(t.begin()+t);
+                                    int choice;
+                                    cout<<"How Many Student Details You Want To Delete: ";
+                                    cin>>choice;
+                                    for(int i=0;i<choice;i++)
+                                    {
+                                        cout<<"****************************************************************"<<endl;
+                                        cout<<"*                                                              *"<<endl;
+                                        cout<<"*    Press 1:Going By Enrolment Number                         *"<<endl;
+                                        cout<<"*    Press 2:Going By Name                                     *"<<endl;
+                                        cout<<"*    Press 3:Going By Phone Number                             *"<<endl;
+                                        cout<<"*                                                              *"<<endl;
+                                        cout<<"****************************************************************"<<endl;
+                                        
+                                        int chh;
+                                        cout<<"Enter Your Choice:  ";
+                                        cin>>chh;
+                                        if(chh==1)
+                                        {
+                                            int ten;
+                                            cout<<"Enter Enrolment Number: ";
+                                            cin>>ten;
+
+                                        }
+                                        else{cout<<"Error :)";}
+                                    }
+
+                                    }
    else
    {
     cout<<"ERROR :(";
