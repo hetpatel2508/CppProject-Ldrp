@@ -417,7 +417,108 @@ int main()
                                             int ten;
                                             cout<<"Enter Enrolment Number: ";
                                             cin>>ten;
+                                            vector<LDRPPR> ltemp5;
+                                            ifstream in("LDRPclassD.txt");
+                                            while(!in.fail() && !in.eof())
+                                            {
+                                                LDRPPR temp;
+                                                in>>temp;
+                                                ltemp5.push_back(temp);
+                                            }
+                                            int size=ltemp5.size();
+                                            int t=0;
 
+                                            while(size>0)
+                                            {
+                                                if(ltemp5[t].geten()==ten)
+                                                {
+                                                    cout<<ltemp5[t].geten()<<" "<<ltemp5[t].getname()<<" "<<ltemp5[t].getpnum()<<"  is  Deleted..."<<endl;
+                                                    ltemp5.erase(ltemp5.begin()+t);
+                                                }
+                                                t++;
+                                                size--;
+                                            }
+                                            in.close();
+
+                                            ofstream out("LDRPclassD.txt");
+
+                                            for(auto x: ltemp5)
+                                            {
+                                                out<<x;
+                                            }
+                                            out.close();
+                                        }
+                                        else if(chh==2)
+                                        {
+                                            string tname;
+                                            cout<<"Enter Name: ";
+                                            cin>>tname;
+                                            vector<LDRPPR> ltemp5;
+                                            ifstream in("LDRPclassD.txt");
+                                            while(!in.fail() && !in.eof())
+                                            {
+                                                LDRPPR temp;
+                                                in>>temp;
+                                                ltemp5.push_back(temp);
+                                            }
+                                            int size=ltemp5.size();
+                                            int t=0;
+
+                                            while(size>0)
+                                            {
+                                                if(ltemp5[t].getname()==tname)
+                                                {
+                                                    cout<<ltemp5[t].geten()<<" "<<ltemp5[t].getname()<<" "<<ltemp5[t].getpnum()<<"  is  Deleted..."<<endl;
+                                                    ltemp5.erase(ltemp5.begin()+t);
+                                                }
+                                                t++;
+                                                size--;
+                                            }
+                                            in.close();
+
+                                            ofstream out("LDRPclassD.txt");
+
+                                            for(auto x: ltemp5)
+                                            {
+                                                out<<x;
+                                            }
+                                            out.close();
+                                        }
+                                        if(chh==3)
+                                        {
+                                            long long int tpn;
+                                            cout<<"Enter Phone Number: ";
+                                            cin>>tpn;
+                                            vector<LDRPPR> ltemp5;
+                                            ifstream in("LDRPclassD.txt");
+                                            while(!in.fail() && !in.eof())
+                                            {
+                                                LDRPPR temp;
+                                                in>>temp;
+                                                ltemp5.push_back(temp);
+                                            }
+                                            int size=ltemp5.size();
+                                            int t=0;
+
+                                            while(size>0)
+                                            {
+                                                if(ltemp5[t].getpnum()==tpn)
+                                                {
+                                                    cout<<ltemp5[t].geten()<<" "<<ltemp5[t].getname()<<" "<<ltemp5[t].getpnum()<<"  is  Deleted..."<<endl;
+                                                    ltemp5.erase(ltemp5.begin()+t);
+                                                }
+                                                t++;
+                                                size--;
+                                            }
+                                            in.close();
+
+                                            ofstream out("LDRPclassD.txt");
+
+                                            for(auto x: ltemp5)
+                                            {
+                                                out<<x;
+                                            }
+                                            out.close();
                                         }
                                         else{cout<<"Error :)";}
                                     }
