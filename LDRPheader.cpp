@@ -55,13 +55,14 @@ void add_studentA()
 
         std::cout << "Enter Enrolment Number: ";
         std::cin >> En;
-        std::cout << "Enter Enrolment Name: ";
+        std::cout << "Enter Name: ";
         std::cin >> n;
-        std::cout << "Enter Enrolment Price: ";
+        std::cout << "Enter Mobile Number: ";
         std::cin >> p;
 
         ltemp1.push_back(new LDRPPR(En, n, p));
     }
+        std::cout<<"Entries are added to the data..!";
 
     for(int i = 0; i < Entries; i++)
     {
@@ -167,12 +168,13 @@ void student_details_perticularA()
             {
                 std::cout << "Asked Details: " << std::endl;
                 std::cout << ltemp3[r];
+                // std::cout<<
             }
             r++;
             size--;
         }
         
-        std::cout << ":) Happy" << std::endl;
+        // std::cout << ":) Happy" << std::endl;
         in.close();
     }
     
@@ -504,7 +506,7 @@ void delete_student_detailA()
                                             }
                                             out.close();
                                         }
-                                        else{std::cout<<"Error :)";}
+                                        // else{std::cout<<"Error :)";}
                                     }
 
                                     }
