@@ -5,11 +5,4 @@ TESTLDRP.cpp
 
 *.json
 
-
-LDRPclassA.txt
-
-LDRPclassB.txt
-
-LDRPclassC.txt
-LDRPclassD.txt
-LDRPclassE.txt
+*.txt
